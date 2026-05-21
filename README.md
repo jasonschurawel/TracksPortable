@@ -1,5 +1,7 @@
 # Tracks: Containerized GTD™ Web Application
 
+![Tracks Portable Logo](tracks-portable-logo.png)
+
 This repository provides an independently deployable, containerized fork of the original TracksApp/tracks project. Designed to eliminate runtime environment dependencies, it offers pre-configured Apptainer (formerly Singularity) and Docker environments. Whether you are deploying on a local workstation, a traditional cloud server, or a High-Performance Computing (HPC) cluster running SLURM, this fork ensures a frictionless setup out of the box. 
 
 The application comes pre-packaged with an embedded SQLite database and a default administrative account (`admin` / `admin`), allowing for immediate use without prior configuration. Furthermore, a fully automated CI/CD pipeline ensures that both `.sif` and `.tar` artifacts are built, tested, and published on GitHub for every new release.
