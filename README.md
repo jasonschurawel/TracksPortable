@@ -1,9 +1,5 @@
 # Tracks: Containerized GTD™ Web Application
 
-[![Build Status](https://github.com/TracksApp/tracks/workflows/Continuous%20Integration/badge.svg)](https://github.com/TracksApp/tracks/actions)
-[![Code Climate](https://codeclimate.com/github/TracksApp/tracks/badges/gpa.svg)](https://codeclimate.com/github/TracksApp/tracks)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6459/badge)](https://bestpractices.coreinfrastructure.org/projects/6459)
-
 This repository provides an independently deployable, containerized fork of the original TracksApp/tracks project. Designed to eliminate runtime environment dependencies, it offers pre-configured Apptainer (formerly Singularity) and Docker environments. Whether you are deploying on a local workstation, a traditional cloud server, or a High-Performance Computing (HPC) cluster running SLURM, this fork ensures a frictionless setup out of the box. 
 
 The application comes pre-packaged with an embedded SQLite database and a default administrative account (`admin` / `admin`), allowing for immediate use without prior configuration. Furthermore, a fully automated CI/CD pipeline ensures that both `.sif` and `.tar` artifacts are built, tested, and published on GitHub for every new release.
@@ -15,11 +11,14 @@ The application comes pre-packaged with an embedded SQLite database and a defaul
 You can download the latest pre-built containers directly from the [Releases page](https://github.com/jasonschurawel/tracks-apptainer/releases). Choose the runtime environment that best fits your infrastructure.
 
 ### Apptainer / Singularity (Recommended for HPC)
-Apptainer is the recommended runtime for HPC and rootless environments, as it requires no background daemon and executes entirely within the user's privilege space. To get started, simply download the latest standalone container and execute it directly.
+Apptainer is the recommended runtime for HPC and rootless environments, as it requires no background daemon and executes entirely within the user's privilege space. To get started, simply download the latest standalone container and execute it directly. Integrating the application into a SLURM-managed cluster is straightforward. The container can be submitted as a background batch job or executed within an interactive shell session, making it highly suitable for academic and research environments.
 
 ```bash
 wget [https://github.com/jasonschurawel/tracks-apptainer/releases/latest/download/tracks_apptainer.sif](https://github.com/jasonschurawel/tracks-apptainer/releases/latest/download/tracks_apptainer.sif)
 apptainer run tracks_apptainer.sif
+
+# Submit as a SLURM batch job 
+sbatch --wrap="apptainer run tracks_apptainer.sif"
 ```
 
 ### Docker Integration
@@ -29,17 +28,6 @@ For traditional cloud or local deployments, standard Docker images are provided.
 wget [https://github.com/jasonschurawel/tracks-apptainer/releases/latest/download/tracks_docker.tar](https://github.com/jasonschurawel/tracks-apptainer/releases/latest/download/tracks_docker.tar)
 docker load < tracks_docker.tar
 docker run -p 3000:3000 tracks-apptainer_web:latest
-```
-
-### SLURM Workload Manager
-Integrating the application into a SLURM-managed cluster is straightforward. The container can be submitted as a background batch job or executed within an interactive shell session, making it highly suitable for academic and research environments.
-
-```bash
-# Submit as a background batch job
-sbatch --wrap="apptainer run tracks_apptainer.sif"
-
-# Or run interactively
-srun --pty apptainer shell tracks_apptainer.sif
 ```
 
 ---
@@ -67,7 +55,4 @@ For lifecycle management, you can spawn or terminate instances via `make apptain
 
 ## Upstream Project & Credits
 
-This containerized fork builds upon the foundational work of the Tracks community. The original Tracks application was developed by bsag and is currently maintained by Jyri-Petteri "ZeiP" Paloposki. 
-
 For comprehensive documentation, contribution guidelines, and licensing details under the GPL, please refer to the official [getontracks.org](http://www.getontracks.org/) project homepage or the upstream [TracksApp/tracks](https://github.com/TracksApp/tracks) repository on GitHub.
-```
