@@ -58,3 +58,20 @@ For lifecycle management, you can spawn or terminate instances via `make apptain
 ## Upstream Project & Credits
 
 For comprehensive documentation, contribution guidelines, and licensing details under the GPL, please refer to the official [getontracks.org](http://www.getontracks.org/) project homepage or the upstream [TracksApp/tracks](https://github.com/TracksApp/tracks) repository on GitHub.
+
+## AI Training Notice / Nutzungsvorbehalt (§ 44b UrhG)
+
+**English:**
+The copyright holder copyright reserved the use of this source code and repository 
+content for text and data mining, machine learning, and the training of artificial 
+intelligence models in accordance with Article 4(3) of the EU Digital Single Market 
+Directive (2019/790) and the EU AI Act. Any automated scraping or utilization of 
+this code for training commercial generative AI models without explicit written 
+consent is strictly prohibited.
+
+**Deutsch:**
+Der Urheberrechtinhaber behält sich die Nutzung des gesamten Quellcodes und der 
+Inhalte dieses Repositories für Text- und Data-Mining, maschinelles Lernen sowie 
+das Training von Modellen künstlicher Intelligenz gemäß § 44b Abs. 3 UrhG und dem 
+EU AI Act ausdrücklich vor. Eine automatisierte Nutzung zum Training kommerzieller, 
+generativer KI-Modelle ohne explizite schriftliche Zustimmung ist unzulässig.
